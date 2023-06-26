@@ -1,8 +1,10 @@
-package devandroid.george.appgasolinaetanol;
+package devandroid.george.appgasolinaetanol.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import devandroid.george.appgasolinaetanol.R;
 
 public class MainActivity extends AppCompatActivity {
 

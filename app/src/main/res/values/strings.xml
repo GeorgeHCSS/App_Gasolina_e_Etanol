@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AppGasolinaEtanol</string>
+    <string name="txt_aplicativo">Gasolina x Etanol</string>
+    <string name="txt_hint_first_name">First Name</string>
+    <string name="txt_hint_last_name">Last Name</string>
+    <string name="txt_hint_name_of_course">Name of Course</string>
+    <string name="txt_hint_phone">Phone</string>
+    <string name="txt_button_limpar">LIMPAR</string>
+    <string name="txt_button_salvar">SALVAR</string>
+    <string name="txt_button_finalizar">FINALIZAR</string>
+    <string name="txt_litro_etanol">R$ Litro/Etanol</string>
+    <string name="txt_litro_gasolina">R$ Litro/Gasolina</string>
+    <string name="txt_title">Gasolina ou Etanol</string>
+    <string name="txt_calcular">Calcular</string>
 </resources>
