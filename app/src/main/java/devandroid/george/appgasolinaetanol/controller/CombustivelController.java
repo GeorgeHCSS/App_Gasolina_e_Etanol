@@ -19,11 +19,17 @@ public class CombustivelController {
     public void salvar(Combustivel combustivel){
         infoCombustivel.putFloat("Gasolina", combustivel.getGasolina());
         infoCombustivel.putFloat("Etanol", combustivel.getEtanol());
+        infoCombustivel.putString("Recomendação", combustivel.getResultado());
         infoCombustivel.apply();
     }
 
     public void getDados(Combustivel combustivel) {
         combustivel.setGasolina(preferences.getFloat("Gasolina", 0));
         combustivel.setEtanol(preferences.getFloat("Etanol", 0));
+        combustivel.setResultado(preferences.getString("RESULTADO", "NA"));
+    }
+    public void limpar(){
+        infoCombustivel.clear();
+        infoCombustivel.apply();
     }
 }
