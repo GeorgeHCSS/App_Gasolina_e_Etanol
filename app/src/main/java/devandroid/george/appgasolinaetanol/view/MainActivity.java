@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import devandroid.george.appgasolinaetanol.R;
 import devandroid.george.appgasolinaetanol.apoio.UtilGasEta;
@@ -60,11 +62,32 @@ public class MainActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recomendacao = UtilGasEta.calcularMelhorOpcao(mGasolina,mEtanol);
-                editResultado.setText(recomendacao);
-                btnSalvar.setEnabled(true);
+                boolean isDadosOk = true;
+                if(TextUtils.isEmpty(editGasolina.getText())){
+                    editGasolina.setError("* Obrigatório");
+                    editGasolina.requestFocus();
+                    isDadosOk = false;
+                    btnSalvar.setEnabled(false);
+                }
+                if(TextUtils.isEmpty(editEtanol.getText())) {
+                    editEtanol.setError("* Obrigatório");
+                    editEtanol.requestFocus();
+                    isDadosOk = false;
+                    btnSalvar.setEnabled(false);
+                }
+                if(isDadosOk){
+                    mGasolina = Double.parseDouble(editGasolina.getText().toString());
+                    mEtanol = Double.parseDouble(editEtanol.getText().toString());
+                    recomendacao = UtilGasEta.calcularMelhorOpcao(mGasolina,mEtanol);
+                    editResultado.setText(recomendacao);
+                    btnSalvar.setEnabled(true);
 
 
+                }else {
+                    Toast.makeText(MainActivity.this,
+                            "Por Favor, digite os Dados Obrigatorios", Toast.LENGTH_LONG).show();
+
+                }
             }
         });
         btnLimpar.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 editEtanol.setText("");
                 editResultado.setText("RESULTADO");
                 combustivelController.limpar();
+                btnSalvar.setEnabled(false);
             }
         });
         btnSalvar.setOnClickListener(new View.OnClickListener() {

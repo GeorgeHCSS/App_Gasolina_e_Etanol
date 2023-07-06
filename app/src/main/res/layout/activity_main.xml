@@ -39,7 +39,7 @@
         android:layout_marginBottom="63dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="@string/txt_litro_gasolina"
+        android:hint="@string/txt_litro_gasolina"
         app:layout_constraintBottom_toTopOf="@+id/btnCalcular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,8 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="@string/txt_litro_etanol"
+
+        android:hint="@string/txt_litro_etanol"
         app:layout_constraintBottom_toTopOf="@+id/btnCalcular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
